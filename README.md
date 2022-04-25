@@ -1,5 +1,5 @@
 # Exchange-rates
-Demo web app for displaying currency conversion rates.
+Demo web app for displaying currency conversion rates. Took about 8 hours to complete
 
 # Notes
 
