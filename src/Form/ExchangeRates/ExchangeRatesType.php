@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ExchangeRatesType extends AbstractType
 {
+    // Frankfurter API does not store older data
     private $minDate = '1999-01-04';
 
     public function buildForm(FormBuilderInterface $builder, array $options)

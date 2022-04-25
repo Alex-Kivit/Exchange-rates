@@ -23,13 +23,14 @@ class StartController extends Controller {
     {
         $form = $this->createForm(ExchangeRatesType::class);
         $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
 
+        if ($form->isSubmitted() && $form->isValid()) {
             $today = date("Y-m-d");
             $date = date_format($form->getData()['date'], "Y-m-d");
 
             $ratesToday = $frankfurter->get($today, $this->baseCurrency, $this->currencies); 
             $ratesRequested = $frankfurter->get($date, $this->baseCurrency, $this->currencies);
+            // Prepare API data for twig template
             $rates = $this->prepareData($ratesToday['rates'], $ratesRequested['rates']);
 
             return $this->render('start/start.html.twig', array(
@@ -44,6 +45,7 @@ class StartController extends Controller {
         ));
     }
 
+    // Takes currency rates from Frankfurter API, returns a 2-dimensional array with currency names and rates
     private function prepareData(?array $ratesToday, ?array $ratesRequested) :array
     {
         $data = array();
