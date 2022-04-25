@@ -1,0 +1,13 @@
+title: Exchange rates
+
+form:
+  title: Currency exchange rates
+  date: Enter date
+  search: Search
+
+table:
+  title: Currency rates to
+  currency: Currency
+  today: Rate today
+  date: Rate requested
+  change: Change

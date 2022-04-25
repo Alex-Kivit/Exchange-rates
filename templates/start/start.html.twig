@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'title'|trans }}{% endblock %}
+
+{% block body %}
+
+    <div class="center">
+		<div class="content">
+			<div class="form">
+				<div class="form-header center">
+					<h3>{{ 'form.title'|trans }}</h3>
+				</div>
+
+                {{ form_start(form) }}
+                <div class="inner">
+                    <div class="form-row">
+                        <div class="form-holder">
+                            {{ form_row(form.date) }}
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row center">
+                    <div class="form-submit">
+                        {{ form_row(form.save) }}
+                    </div>
+                </div>
+                {{ form_end(form) }}
+
+			</div>
+		</div>
+	</div>
+
+    {% if rates is defined and rates is not null %}
+        <h2 class="center mb-3">{{ 'table.title'|trans }} {{ baseCurrency }}</h2>
+        <div class="center">
+            <div class="content table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="ps-3">{{ 'table.currency'|trans }}</th>
+                            <th>{{ 'table.today'|trans }}</th>
+                            <th>{{ 'table.date'|trans }}</th>
+                            <th>{{ 'table.change'|trans }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rate in rates %}
+                            {% set change = ((rate['date'] - rate['today']) / rate['today'] * 100)|round(2, 'floor') %}
+                            <tr class="bg-blue">
+                                <td class="pt-2 ps-3">{{ rate['currency'] }}</td>
+                                <td class="pt-2">{{ rate['today'] }}</td>
+                                <td class="pt-2">{{ rate['date'] }}</td>
+                                {% if change < 0 %}
+                                    <td class="pt-2 red">{{ change }}%</td>
+                                {% elseif change > 0 %}
+                                    <td class="pt-2 green">+{{ change }}%</td>
+                                {% else %}
+                                    <td class="pt-2">+{{ change }}%</td>
+                                {% endif %}
+                            </tr>
+                            <tr id="spacing-row">
+                                <td></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}

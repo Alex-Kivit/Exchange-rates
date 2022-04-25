@@ -1,0 +1,13 @@
+title: Kursy walut
+
+form:
+  title: Kursy walut
+  date: Wpisz datę
+  search: Pokaż
+
+table:
+  title: Kursy walut do
+  currency: Waluta
+  today: Kurs dziś
+  date: Kurs zapytany
+  change: Zmiana
