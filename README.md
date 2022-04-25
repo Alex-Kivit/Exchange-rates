@@ -1,5 +1,5 @@
 # Exchange-rates
-Demo web app for displaying currency conversion rates.
+Demo web app for displaying currency conversion rates. Took about 8 hours to complete.
 
 # Notes
 
@@ -17,4 +17,6 @@ symfony server:start
 
 # Possible improvements
 
-Make language selector not reset search results. Could be done by replacing Symfony form with html one. For this project I decided to go with Symfony form for demonstration puposes.
+1. Make language selector not reset search results. Could be done by replacing Symfony form with html one. For this project I decided to go with Symfony form for demonstration puposes.
+2. Add base currency and currency pairs as form input.
+3. Add end date as form input.
