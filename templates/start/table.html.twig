@@ -13,7 +13,7 @@
                     </thead>
                     <tbody>
                         {% for rate in rates %}
-                            {% set change = ((rate['date'] - rate['today']) / rate['today'] * 100)|round(2, 'floor') %}
+                            {% set change = ((rate['today'] - rate['date']) / rate['date'] * 100)|round(2, 'floor') %}
                             <tr class="bg-blue">
                                 <td class="pt-2 ps-3">{{ rate['currency'] }}</td>
                                 <td class="pt-2">{{ rate['today'] }}</td>
