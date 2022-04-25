@@ -1,7 +1,7 @@
 # Exchange-rates
-Demo web app for displaying currency rates
+Demo web app for displaying currency conversion rates.
 
-#Notes
+# Notes
 
 App uses bootstrap 5 and PHP Symfony 4.4 framework. This project does not use any database, as it is not required. Currency rates are taken from https://www.frankfurter.app/docs.
 
